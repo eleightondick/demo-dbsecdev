@@ -9,9 +9,10 @@ namespace SecurityApplication.Helpers
 {
     public class PeopleCompanies
     {
-        public IEnumerable<Person> People;
-        public IEnumerable<Company> Companies;
-        public SelectList CompanyList;
+        public Person PersonToEdit { get; set; }
+        public IEnumerable<Person> People { get; set; }
+        public IEnumerable<Company> Companies { get; set; }
+        public SelectList CompanyList { get; set; }
 
         public PeopleCompanies(EFDbContext context)
         {

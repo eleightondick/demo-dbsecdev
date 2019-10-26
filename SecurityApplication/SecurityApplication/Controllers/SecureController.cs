@@ -27,9 +27,14 @@ namespace SecurityApplication.Controllers
         public ActionResult Edit(int id)
         {
             PeopleCompanies peopleCompanies = new PeopleCompanies(_context);
-            Person personToUpdate = _context.People.FirstOrDefault(x => x.Id == id);
-            ViewBag.CompanyList = peopleCompanies.CompanyList;
-            return View("Edit", personToUpdate);
+            peopleCompanies.PersonToEdit = _context.People.FirstOrDefault(x => x.Id == id);
+
+            if (peopleCompanies.PersonToEdit == null)
+            {
+                return new HttpNotFoundResult("Person, by this ID, was not found");
+            }
+
+            return View("Edit", peopleCompanies);
         }
 
         [HttpPost]
