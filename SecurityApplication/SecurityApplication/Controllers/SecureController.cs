@@ -20,6 +20,11 @@ namespace SecurityApplication.Controllers
         // GET: Secure
         public ActionResult Index()
         {
+            if (!String.IsNullOrEmpty(TempData["message"] as String))
+            {
+                ViewBag.Message = (string)TempData["message"];
+            }
+
             PeopleCompanies peopleCompanies = new PeopleCompanies(_context);
             return View(peopleCompanies);
         }
@@ -62,7 +67,7 @@ namespace SecurityApplication.Controllers
 
             _context.SaveChanges();
 
-            TempData["message"] = "Entity Saved";
+            TempData["message"] = "Person Saved";
             return RedirectToAction("Index", "Secure");
         }
     }

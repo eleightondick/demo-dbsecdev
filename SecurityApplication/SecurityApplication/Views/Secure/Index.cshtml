@@ -7,21 +7,31 @@
 
 <h2>"Secure" Methods</h2>
 
-<div class="col-md-12">
-    <p class="well-lg">This section shows the more correct way to handle the issues presented in the @Html.ActionLink("Insecure", "Index", "Insecure") section of the presentation</p>
-    <div class="col-md-12">
-        <h4>Current Contents of Model</h4>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <td>Id</td>
-                <td>Company</td>
-                <td>First Name</td>
-                <td>Last Name</td>
-                <td>Actions</td>
-            </tr>
-            @Html.DisplayFor(m => m.People)
-            </thead>
-        </table>
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-success alert-dismissable">
+        @ViewBag.Message
     </div>
+}
+
+<p class="alert alert-info">This section shows the more correct way to handle the issues presented in the @Html.ActionLink("Insecure", "Index", "Insecure") section of the presentation</p>
+
+<h3 class="col-md-12 well well-lg">Demonstration 1: SQL Injection</h3>
+
+<div class="col-md-12">
+    <h4>Current Contents of Model</h4>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Id</td>
+            <td>Company</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Actions</td>
+        </tr>
+        @Html.DisplayFor(m => m.People)
+        </thead>
+    </table>
 </div>
+
+<h3 class="col-md-12 well well-lg">Demonstration 2: XSS</h3>
