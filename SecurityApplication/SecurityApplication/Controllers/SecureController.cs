@@ -9,11 +9,12 @@ namespace SecurityApplication.Controllers
 {
     public class SecureController : Controller
     {
-
+        private EFDbContext _context;
         public SecureController()
         {
-
+            _context = new EFDbContext();
         }
+
         // GET: Secure
         public ActionResult Index()
         {
