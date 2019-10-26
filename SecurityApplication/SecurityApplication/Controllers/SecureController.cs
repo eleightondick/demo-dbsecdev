@@ -26,8 +26,9 @@ namespace SecurityApplication.Controllers
 
         public ActionResult Edit(int id)
         {
+            PeopleCompanies peopleCompanies = new PeopleCompanies(_context);
             Person personToUpdate = _context.People.FirstOrDefault(x => x.Id == id);
-
+            ViewBag.CompanyList = peopleCompanies.CompanyList;
             return View("Edit", personToUpdate);
         }
 
