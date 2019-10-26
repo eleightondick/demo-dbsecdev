@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -21,6 +22,41 @@ namespace SecurityApplication.Controllers
         {
             PeopleCompanies peopleCompanies = new PeopleCompanies(_context);
             return View(peopleCompanies);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            Person personToUpdate = _context.People.FirstOrDefault(x => x.Id == id);
+
+            return View("Edit", personToUpdate);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Person person)
+        {
+            // NOTE: Most of this, in a real app, would go into the model and ideally use a graphdiff like operation to update properties
+            Person p = _context.People.FirstOrDefault(x => x.Id == person.Id);
+
+            if (p == null)
+            {
+                return new HttpNotFoundResult("Person, with this ID, was not found");
+            }
+
+            Company c = _context.Companies.FirstOrDefault(x => x.Id == person.Company.Id);
+
+            if (c == null)
+            {
+                return new HttpNotFoundResult("Company, with provided ID, was not found");
+            }
+
+            p.FirstName = person.FirstName;
+            p.LastName = person.LastName;
+            p.Company = c;
+
+            _context.SaveChanges();
+
+            TempData["message"] = "Entity Saved";
+            return RedirectToRoute("Index");
         }
     }
 }
