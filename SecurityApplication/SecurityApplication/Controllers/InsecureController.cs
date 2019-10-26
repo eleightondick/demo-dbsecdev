@@ -21,7 +21,6 @@ namespace SecurityApplication.Controllers
         }
 
         [HttpPost]
-        [AllowHTML]
         public ActionResult SqlInjection(string codeToExecute)
         {
             //Do injection here
