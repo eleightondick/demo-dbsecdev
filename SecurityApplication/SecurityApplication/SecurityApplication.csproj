@@ -182,10 +182,10 @@
     <Content Include="Views\Secure\Index.cshtml" />
     <Content Include="Views\Secure\DisplayTemplates\Person.cshtml" />
     <Content Include="Views\Secure\Edit.cshtml" />
+    <Content Include="Views\Insecure\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Insecure\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

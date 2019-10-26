@@ -11,7 +11,7 @@ namespace SecurityApplication.Controllers
         // GET: Insecure
         public ActionResult Index()
         {
-            ViewBag.AlertMessage = TempData["Message"]?.ToString();
+            ViewBag.Message = TempData["message"]?.ToString();
             return View();
         }
 

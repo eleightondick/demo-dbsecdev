@@ -1,0 +1,15 @@
+﻿
+<h2>"InSecure" Methods</h2>
+
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-success alert-dismissable">
+        @ViewBag.Message
+    </div>
+}
+
+<p class="alert alert-info">This section shows the more incorrect way to handle security, the correct way is in @Html.ActionLink("Secure", "Index", "Secure") section of the presentation</p>
+
+<h3 class="col-md-12 well well-lg">Demonstration 1: SQL Injection</h3>
+
+<h3 class="col-md-12 well well-lg">Demonstration 2: XSS</h3>

@@ -20,10 +20,7 @@ namespace SecurityApplication.Controllers
         // GET: Secure
         public ActionResult Index()
         {
-            if (!String.IsNullOrEmpty(TempData["message"] as String))
-            {
-                ViewBag.Message = (string)TempData["message"];
-            }
+            ViewBag.Message = TempData["message"]?.ToString();
 
             PeopleCompanies peopleCompanies = new PeopleCompanies(_context);
             return View(peopleCompanies);
