@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.demo-glyphicon-align {
+    vertical-align: text-top;
+}
+
+.nodot {
+    list-style-type: none;
+}
