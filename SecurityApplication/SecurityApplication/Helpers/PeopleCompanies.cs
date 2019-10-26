@@ -14,6 +14,8 @@ namespace SecurityApplication.Helpers
         public IEnumerable<Company> Companies { get; set; }
         public SelectList CompanyList { get; set; }
 
+        public PeopleCompanies() { }
+
         public PeopleCompanies(EFDbContext context)
         {
             this.People = context.People;

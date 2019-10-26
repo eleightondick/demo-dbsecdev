@@ -38,8 +38,9 @@ namespace SecurityApplication.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Person person)
+        public ActionResult Edit(PeopleCompanies peopleCompanies)
         {
+            Person person = peopleCompanies.PersonToEdit;
             // NOTE: Most of this, in a real app, would go into the model and ideally use a graphdiff like operation to update properties
             Person p = _context.People.FirstOrDefault(x => x.Id == person.Id);
 
@@ -62,7 +63,7 @@ namespace SecurityApplication.Controllers
             _context.SaveChanges();
 
             TempData["message"] = "Entity Saved";
-            return RedirectToRoute("Index");
+            return RedirectToAction("Index", "Secure");
         }
     }
 }
