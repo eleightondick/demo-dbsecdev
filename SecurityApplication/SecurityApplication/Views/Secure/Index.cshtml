@@ -1,0 +1,25 @@
+﻿@using SecurityApplication.Models
+@model SecurityApplication.Helpers.PeopleCompanies
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>"Secure" Methods</h2>
+
+<div class="col-md-12">
+    <p class="well-lg">This section shows the more correct way to handle the issues presented in the @Html.ActionLink("Insecure", "Index", "Insecure") section of the presentation</p>
+    <div class="col-md-12">
+        <h4>Current Contents of Model</h4>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <td>Id</td>
+                <td>Company</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
