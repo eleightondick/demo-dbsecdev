@@ -6,8 +6,9 @@ using System.Web.Mvc;
 
 namespace SecurityApplication.Controllers
 {
-    public class HomeController : Controller
+    public class SecureController : Controller
     {
+        // GET: Secure
         public ActionResult Index()
         {
             return View();
