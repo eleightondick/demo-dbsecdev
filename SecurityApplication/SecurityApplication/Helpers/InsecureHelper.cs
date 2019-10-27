@@ -7,20 +7,12 @@ using SecurityApplication.Models;
 
 namespace SecurityApplication.Helpers
 {
-    public class InsecureHelper
+    public class InsecureHelper : Helper
     {
-        public IEnumerable<Person> People { get; set; }
+        public InsecureHelper() : base() { }
 
-        [Display(Name = "Enter the \"Id\" to delete")]
-        public string Statement { get; set; }
-        public int RowsAffected { get; set; } = 0;
-        public string ProcessedStatement { get; set; }
-
-        public InsecureHelper() { }
-
-        public InsecureHelper(EFDbContext context)
+        public InsecureHelper(EFDbContext context) : base(context)
         {
-            People = context.People;
             Statement = "0;delete from People";
         }
     }
