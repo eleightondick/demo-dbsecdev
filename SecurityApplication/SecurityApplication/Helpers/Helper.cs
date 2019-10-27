@@ -16,6 +16,7 @@ namespace SecurityApplication.Helpers
         public IEnumerable<Person> People { get; set; }
         public IEnumerable<Comment> Comments { get; set; }
         public string Comment { get; set; }
+        public bool CSCommentEncode { get; set; }
 
         public Helper() { }
         public Helper(EFDbContext context)
@@ -24,6 +25,7 @@ namespace SecurityApplication.Helpers
             Comments = context.Comments;
             Statement = "0;delete from People";
             Comment = @"<script type=""text/javascript"">alert(""pew pew lazers"")</script>";
+            CSCommentEncode = false;
         }
     }
 }

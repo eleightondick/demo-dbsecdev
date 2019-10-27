@@ -10,15 +10,21 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.Comment, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10 col-md-push-2">
+                @Html.CheckBoxFor(model => model.CSCommentEncode, htmlAttributes: new { @class = "checkbox-inline" })
+                @Html.Label("Encode Input through CSharp", htmlAttributes: new { @class = "" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Comment, new {htmlAttributes = new {@class = "form-control"}})
-                @Html.ValidationMessageFor(model => model.Comment, "", new {@class = "text-danger"})
+                @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Submit" class="btn btn-default" onclick="Comments.saveComment(event);"/>
+                <input type="submit" value="Submit" class="btn btn-default" onclick="Comments.saveComment(event);" />
             </div>
         </div>
     </div>
