@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SecurityApplication.Helpers;
+using SecurityApplication.Models;
 
 namespace SecurityApplication.Controllers
 {
     public class InsecureController : Controller
     {
+        private readonly EFDbContext _context;
+
+        public InsecureController()
+        {
+            _context = new EFDbContext();
+        }
+
         // GET: Insecure
         public ActionResult Index()
         {
@@ -17,7 +26,8 @@ namespace SecurityApplication.Controllers
 
         public ActionResult SqlInjection()
         {
-            return View();
+            InsecureHelper helper = new InsecureHelper(_context);
+            return View(helper);
         }
 
         [HttpPost]
