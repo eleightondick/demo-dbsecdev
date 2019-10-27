@@ -150,3 +150,7 @@ $RECYCLE.BIN/
 nCrunchTemp*
 _NCrunch_*
 .vs
+
+# Project specific
+SecurityApplication/SecurityApplication/Scripts/SecurityApplication/*.js.map
+SecurityApplication/SecurityApplication/Scripts/SecurityApplication/*.js
