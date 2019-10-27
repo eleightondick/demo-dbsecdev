@@ -132,6 +132,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\InsecureHelper.cs" />
     <Compile Include="Helpers\PeopleCompanies.cs" />
     <Compile Include="Migrations\201910261742203_Initial.cs" />
     <Compile Include="Migrations\201910261742203_Initial.Designer.cs">
