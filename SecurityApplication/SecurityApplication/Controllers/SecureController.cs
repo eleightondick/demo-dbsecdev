@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SecurityApplication.Helpers;
@@ -108,12 +109,17 @@ namespace SecurityApplication.Controllers
         //[ValidateInput(false)]
         public ActionResult XSS(Helper helper)
         {
-            Comment comment = new Comment()
+            string comment = helper.Comment;
+            if (helper.CSCommentEncode)
             {
-                CommentText =  helper.Comment
+                comment = WebUtility.HtmlEncode(comment);
+            }
+            Comment commentToSave = new Comment()
+            {
+                CommentText = comment
             };
 
-            _context.Comments.Add(comment);
+            _context.Comments.Add(commentToSave);
             _context.SaveChanges();
             return RedirectToAction("XSS", "Secure");
         }
