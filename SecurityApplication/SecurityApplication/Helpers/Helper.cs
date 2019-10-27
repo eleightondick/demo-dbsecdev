@@ -23,7 +23,7 @@ namespace SecurityApplication.Helpers
             People = context.People;
             Comments = context.Comments;
             Statement = "0;delete from People";
-            Comment = "<script type=\"text/javascript\">alert(\"pew pew lazers\"</script>";
+            Comment = @"<script type=""text/javascript"">alert(""pew pew lazers"")</script>";
         }
     }
 }

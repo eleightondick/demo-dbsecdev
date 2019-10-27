@@ -103,5 +103,18 @@ namespace SecurityApplication.Controllers
             SecureHelper helper = new SecureHelper(_context);
             return View("XSS", helper);
         }
+
+        [HttpPost]
+        public ActionResult XSS(Helper helper)
+        {
+            Comment comment = new Comment()
+            {
+                CommentText =  helper.Comment
+            };
+
+            _context.Comments.Add(comment);
+            _context.SaveChanges();
+            return RedirectToAction("XSS", "Secure");
+        }
     }
 }
