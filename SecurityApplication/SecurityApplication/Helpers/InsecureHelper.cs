@@ -13,6 +13,10 @@ namespace SecurityApplication.Helpers
 
         [Display(Name = "Enter the \"Id\" to delete")]
         public string Statement { get; set; }
+        public int RowsAffected { get; set; } = 0;
+        public string ProcessedStatement { get; set; }
+
+        public InsecureHelper() { }
 
         public InsecureHelper(EFDbContext context)
         {

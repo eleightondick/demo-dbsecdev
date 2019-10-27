@@ -7,7 +7,17 @@
 
 <h2>SQL Injection Demonstration</h2>
 
-<p class="alert alert-info">Below shows the current state of the database records, and a text box for posting a near direct query to the database</p>
+@if (!String.IsNullOrEmpty(Model.ProcessedStatement))
+{
+    <div class="col-md-12 alert alert-danger">
+        <p>Previous statement executed, the details for it are:</p>
+        <p><span class="glyphicon glyphicon-warning-sign"></span>Rows Affected: @Model.RowsAffected</p>
+        <p><span class="glyphicon glyphicon-warning-sign"></span>Statement: @Model.ProcessedStatement</p>
+    </div>
+}
+<div class="col-md-12">
+    <p class="alert alert-info">Below shows the current state of the database records, and a text box for posting a near direct query to the database</p>
+</div>
 
 <div class="col-md-12">
     <h4>Current Contents of Model</h4>

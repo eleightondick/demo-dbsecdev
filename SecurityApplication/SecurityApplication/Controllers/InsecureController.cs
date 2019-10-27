@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -27,15 +28,29 @@ namespace SecurityApplication.Controllers
         public ActionResult SqlInjection()
         {
             InsecureHelper helper = new InsecureHelper(_context);
-            return View(helper);
+            return View("SqlInjection", helper);
         }
 
         [HttpPost]
-        public ActionResult SqlInjection(string codeToExecute)
+        public ActionResult SqlInjection(InsecureHelper helper)
         {
-            //Do injection here
-            TempData["Message"] = "Data Saved";
-            return RedirectToRoute("Index");
+            string sqlToExecute = "delete from People where Id = " + helper.Statement;
+
+            string connectionString = _context.Database.Connection.ConnectionString;
+            int rowsAffected = 0;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(sqlToExecute, connection);
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+            }
+            
+            //Now reload data, set attributes and reload previous view
+            InsecureHelper newHelper = new InsecureHelper(_context);
+            newHelper.ProcessedStatement = sqlToExecute;
+            newHelper.RowsAffected = rowsAffected;
+            
+            return View("SqlInjection", newHelper);
         }
     }
 }
