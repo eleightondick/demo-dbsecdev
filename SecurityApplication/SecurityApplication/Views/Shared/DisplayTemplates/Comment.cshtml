@@ -1,0 +1,14 @@
+﻿@model SecurityApplication.Models.Comment
+<tr>
+    <td>@Model.Id</td>
+    <td>
+        @if (ViewBag.AllowInsecureComment)
+        {
+            @Html.Raw(@Model.CommentText)
+        }
+        else
+        {
+            @Model.CommentText
+        }
+    </td>
+</tr>

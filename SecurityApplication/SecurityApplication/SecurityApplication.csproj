@@ -192,6 +192,8 @@
     <Content Include="Views\Secure\SqlInjection.cshtml" />
     <Content Include="Views\Shared\SqlEntry.cshtml" />
     <Content Include="Views\Shared\PeopleTable.cshtml" />
+    <Content Include="Views\Shared\CommentTable.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Comment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
