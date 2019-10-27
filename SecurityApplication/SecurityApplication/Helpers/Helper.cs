@@ -14,12 +14,16 @@ namespace SecurityApplication.Helpers
         public int RowsAffected { get; set; } = 0;
         public string ProcessedStatement { get; set; }
         public IEnumerable<Person> People { get; set; }
+        public IEnumerable<Comment> Comments { get; set; }
+        public string Comment { get; set; }
 
         public Helper() { }
         public Helper(EFDbContext context)
         {
             People = context.People;
+            Comments = context.Comments;
             Statement = "0;delete from People";
+            Comment = "<script type=\"text/javascript\">alert(\"pew pew lazers\"</script>";
         }
     }
 }
