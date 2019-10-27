@@ -20,5 +20,6 @@ namespace SecurityApplication.Models
 
         public virtual DbSet<Person> People { get; set; }
         public virtual  DbSet<Company> Companies { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
     }
 }

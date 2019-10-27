@@ -139,7 +139,12 @@
     <Compile Include="Migrations\201910261742203_Initial.Designer.cs">
       <DependentUpon>201910261742203_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910271626516_AddCommentModel.cs" />
+    <Compile Include="Migrations\201910271626516_AddCommentModel.Designer.cs">
+      <DependentUpon>201910271626516_AddCommentModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\EFDbContext.cs" />
     <Compile Include="Models\Person.cs" />
@@ -207,6 +212,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201910261742203_Initial.resx">
       <DependentUpon>201910261742203_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910271626516_AddCommentModel.resx">
+      <DependentUpon>201910271626516_AddCommentModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
