@@ -97,5 +97,11 @@ namespace SecurityApplication.Controllers
 
             return View("SqlInjection", newHelper);
         }
+
+        public ActionResult XSS()
+        {
+            SecureHelper helper = new SecureHelper(_context);
+            return View("XSS", helper);
+        }
     }
 }
