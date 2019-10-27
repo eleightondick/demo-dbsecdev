@@ -185,6 +185,8 @@
     <Content Include="Views\Insecure\Index.cshtml" />
     <Content Include="Views\Insecure\SqlInjection.cshtml" />
     <Content Include="Views\Secure\SqlInjection.cshtml" />
+    <Content Include="Views\Shared\SqlEntry.cshtml" />
+    <Content Include="Views\Shared\PeopleTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

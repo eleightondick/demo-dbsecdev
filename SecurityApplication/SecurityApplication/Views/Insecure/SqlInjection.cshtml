@@ -20,36 +20,7 @@
 </div>
 
 <div class="col-md-12">
-    <h4>Current Contents of Model</h4>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <td>Id</td>
-                <td>Company</td>
-                <td>First Name</td>
-                <td>Last Name</td>
-            </tr>
-            @Html.DisplayFor(m => m.People)
-        </thead>
-    </table>
+    @Html.Partial("PeopleTable", @Model)
     <p class="alert alert-danger">SQL on the backend that will be attempted: "delete from People where Id = [input]"</p>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        <div class="form-horizontal">
-            <div class="form-group">
-                @Html.LabelFor(model => model.Statement, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Statement, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Statement, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Submit" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-    }
-
+    @Html.Partial("SqlEntry", @Model)
 </div>
