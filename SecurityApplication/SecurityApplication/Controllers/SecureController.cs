@@ -105,6 +105,7 @@ namespace SecurityApplication.Controllers
         }
 
         [HttpPost]
+        //[ValidateInput(false)]
         public ActionResult XSS(Helper helper)
         {
             Comment comment = new Comment()

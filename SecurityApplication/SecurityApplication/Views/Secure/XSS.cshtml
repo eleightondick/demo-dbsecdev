@@ -7,11 +7,24 @@
 <h2>XSS (Cross Site Scripting Example)</h2>
 
 <div class="col-md-12">
+    <b>Important Information about Encoding:</b>
+    <p>
+        The general accepted practice is that
+        <b>
+            encoding takes place at the point of output and encoded values
+            should never be stored in a database.
+        </b> Encoding at the point of output allows you to change the use of data,
+        for example, from HTML to a query string value. It also enables you to easily search your data without having to
+        encode values before searching and allows you to take advantage of any changes or bug fixes made to encoders. 
+        <small>Taken from (<a href="https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting?view=aspnetcore-3.0#where-should-encoding-take-place">https://docs.microsoft.com/en-us/aspnet/core/security/cross-site-scripting?view=aspnetcore-3.0#where-should-encoding-take-place</a>)</small>
+    </p>
+</div>
+
+<div class="col-md-12">
     <p class="alert alert-info">Below shows the current state of the database records, and a text box for posting a near direct query to the database</p>
 </div>
 
 <div class="col-md-12">
     @Html.Partial("CommentTable", @Model)
-    <p class="alert alert-danger">SQL on the backend that will be attempted: "delete from People where Id = [input]"</p>
     @Html.Partial("CommentEntry", @Model)
 </div>
