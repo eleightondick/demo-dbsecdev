@@ -1,5 +1,5 @@
 ﻿@model SecurityApplication.Helpers.Helper
-@using (Html.BeginForm())
+@using (Html.BeginForm(this.Html.ViewContext.RouteData.Values["action"].ToString(), this.Html.ViewContext.RouteData.Values["controller"].ToString(), FormMethod.Post, new {@id = "commentForm"}))
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal" id="commentFormEntry">
