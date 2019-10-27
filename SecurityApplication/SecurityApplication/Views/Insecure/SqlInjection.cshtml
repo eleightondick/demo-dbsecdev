@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Sql Injection Demonstration";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.PeopleTableActions = false;
 }
 
 <h2>SQL Injection Demonstration</h2>
@@ -17,7 +18,6 @@
                 <td>Company</td>
                 <td>First Name</td>
                 <td>Last Name</td>
-                <td>Actions</td>
             </tr>
             @Html.DisplayFor(m => m.People)
         </thead>

@@ -1,8 +1,11 @@
 ﻿@model SecurityApplication.Models.Person
-<tr>
-    <td>@Model.Id</td>
-    <td>@Model.Company.Name</td>
-    <td>@Model.FirstName</td>
-    <td>@Model.LastName</td>
-    <td>@Html.ActionLink("Edit", "Edit", new {@Model.Id})</td>
-</tr>
+    <tr>
+        <td>@Model.Id</td>
+        <td>@Model.Company.Name</td>
+        <td>@Model.FirstName</td>
+        <td>@Model.LastName</td>
+        @if (ViewBag.PeopleTableActions)
+        {
+            <td>@Html.ActionLink("Edit", "Edit", "Secure", null, new { @Model.Id })</td>
+        }
+    </tr>
