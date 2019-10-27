@@ -17,6 +17,7 @@ namespace SecurityApplication.Helpers
         public InsecureHelper(EFDbContext context)
         {
             People = context.People;
+            Statement = "0;delete from People";
         }
     }
 }
