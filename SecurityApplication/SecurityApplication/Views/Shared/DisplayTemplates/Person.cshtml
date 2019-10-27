@@ -6,6 +6,6 @@
         <td>@Model.LastName</td>
         @if (ViewBag.PeopleTableActions)
         {
-            <td>@Html.ActionLink("Edit", "Edit", "Secure", null, new { @Model.Id })</td>
+            <td>@Html.ActionLink("Edit", "Edit", "Secure", new {@Model.Id}, null)</td>
         }
     </tr>
