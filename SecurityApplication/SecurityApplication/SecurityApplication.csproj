@@ -179,9 +179,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Secure\Index.cshtml" />
-    <Content Include="Views\Secure\DisplayTemplates\Person.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Person.cshtml" />
     <Content Include="Views\Secure\Edit.cshtml" />
     <Content Include="Views\Insecure\Index.cshtml" />
+    <Content Include="Views\Insecure\SqlInjection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
