@@ -7,6 +7,10 @@
             <td>Company</td>
             <td>First Name</td>
             <td>Last Name</td>
+            @if (ViewBag.PeopleTableActions)
+            {
+                <td>Actions</td>
+            }
         </tr>
         @Html.DisplayFor(m => m.People)
     </thead>

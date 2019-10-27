@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -66,6 +67,35 @@ namespace SecurityApplication.Controllers
 
             TempData["message"] = "Person Saved";
             return RedirectToAction("Index", "Secure");
+        }
+
+        public ActionResult SqlInjection()
+        {
+            SecureHelper helper = new SecureHelper(_context);
+            return View("SqlInjection", helper);
+        }
+
+        [HttpPost]
+        public ActionResult SqlInjection(SecureHelper helper)
+        {
+            string sqlToExecute = "delete from People where Id = @id";
+
+            string connectionString = _context.Database.Connection.ConnectionString;
+            int rowsAffected = 0;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(sqlToExecute, connection);
+                command.Parameters.AddWithValue("@id", helper.Statement);
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+            }
+
+            //Now reload data, set attributes and reload previous view
+            SecureHelper newHelper = new SecureHelper(_context);
+            newHelper.ProcessedStatement = sqlToExecute;
+            newHelper.RowsAffected = rowsAffected;
+
+            return View("SqlInjection", newHelper);
         }
     }
 }

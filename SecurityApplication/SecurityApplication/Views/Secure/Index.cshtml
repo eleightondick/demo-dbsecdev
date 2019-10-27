@@ -1,5 +1,5 @@
 ﻿@using SecurityApplication.Models
-@model SecurityApplication.Helpers.PeopleCompanies
+@model SecurityApplication.Helpers.SecureHelper
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -19,20 +19,15 @@
 
 <h3 class="col-md-12 well well-lg">Demonstration 1: SQL Injection</h3>
 
+<h4 class="col-md-12 well well-sm">Option 1: Entity Framework</h4>
 <div class="col-md-12">
-    <h4>Current Contents of Model</h4>
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <td>Id</td>
-            <td>Company</td>
-            <td>First Name</td>
-            <td>Last Name</td>
-            <td>Actions</td>
-        </tr>
-        @Html.DisplayFor(m => m.People)
-        </thead>
-    </table>
+    <p class="alert alert-success">Click "Edit" below in one of the table entries to edit a record</p>
+    @Html.Partial("PeopleTable", @Model)
+</div>
+
+<h4 class="col-md-12 well well-sm">Option 2: Using Parameterized SqlCommand</h4>
+<div class="col-md-12">
+    <p class="alert alert-success">@Html.ActionLink("Click Here", "SqlInjection") to attempt the same SQL Injection as before</p>
 </div>
 
 <h3 class="col-md-12 well well-lg">Demonstration 2: XSS</h3>
