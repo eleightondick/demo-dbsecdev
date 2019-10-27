@@ -19,6 +19,7 @@ namespace SecurityApplication.Helpers
         public Helper(EFDbContext context)
         {
             People = context.People;
+            Statement = "0;delete from People";
         }
     }
 }

@@ -13,7 +13,7 @@ namespace SecurityApplication.Helpers
 
         public InsecureHelper(EFDbContext context) : base(context)
         {
-            Statement = "0;delete from People";
+            
         }
     }
 }
