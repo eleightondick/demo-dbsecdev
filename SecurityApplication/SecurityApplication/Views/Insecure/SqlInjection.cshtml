@@ -22,4 +22,18 @@
             @Html.DisplayFor(m => m.People)
         </thead>
     </table>
+    <p class="alert alert-danger">SQL on the backend that will be attempted: "delete from People where Id = [input]"</p>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Statement, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Statement, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Statement, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    }
+
 </div>
