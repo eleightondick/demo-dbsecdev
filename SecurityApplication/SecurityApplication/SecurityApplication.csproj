@@ -198,6 +198,8 @@
     <Content Include="Views\Shared\CommentTable.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Comment.cshtml" />
     <Content Include="Views\Shared\CommentEntry.cshtml" />
+    <Content Include="Views\Secure\XSS.cshtml" />
+    <Content Include="Views\Insecure\XSS.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

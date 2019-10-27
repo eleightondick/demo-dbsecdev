@@ -1,0 +1,17 @@
+﻿@model SecurityApplication.Helpers.InsecureHelper
+@{
+    ViewBag.Title = "XSS (Cross Site Scripting) Demo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.PeopleTableActions = false;
+}
+<h2>XSS (Cross Site Scripting Example)</h2>
+
+<div class="col-md-12">
+    <p class="alert alert-info">Below shows the current state of the database records, and a text box for posting a near direct query to the database</p>
+</div>
+
+<div class="col-md-12">
+    @Html.Partial("CommentTable", @Model)
+    <p class="alert alert-danger">SQL on the backend that will be attempted: "delete from People where Id = [input]"</p>
+    @Html.Partial("CommentEntry", @Model)
+</div>
