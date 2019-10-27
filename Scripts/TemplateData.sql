@@ -1,6 +1,7 @@
 -- Cleanup Records
 DELETE FROM dbo.People
 DELETE FROM dbo.Companies
+DELETE FROM dbo.Comments;
 
 -- Insert Companies
 INSERT INTO dbo.Companies
