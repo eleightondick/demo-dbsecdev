@@ -147,13 +147,6 @@ $RECYCLE.BIN/
 # Mac crap
 .DS_Store
 
-
-# Electronic syllabus generated javascript files
-ElectronicSyllabus.WebUI/Scripts/NewView/*.js
-ElectronicSyllabus.WebUI/Scripts/NewView/*/*.js
-ElectronicSyllabus.WebUI/Scripts/NewView/*.js.map
-ElectronicSyllabus.WebUI/Scripts/NewView/*/*.js.map
-
 nCrunchTemp*
 _NCrunch_*
 .vs
