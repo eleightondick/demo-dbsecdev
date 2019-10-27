@@ -22,13 +22,13 @@ namespace SecurityApplication.Controllers
         {
             ViewBag.Message = TempData["message"]?.ToString();
 
-            PeopleCompanies peopleCompanies = new PeopleCompanies(_context);
+            SecureHelper peopleCompanies = new SecureHelper(_context);
             return View(peopleCompanies);
         }
 
         public ActionResult Edit(int id)
         {
-            PeopleCompanies peopleCompanies = new PeopleCompanies(_context);
+            SecureHelper peopleCompanies = new SecureHelper(_context);
             peopleCompanies.PersonToEdit = _context.People.FirstOrDefault(x => x.Id == id);
 
             if (peopleCompanies.PersonToEdit == null)
@@ -40,7 +40,7 @@ namespace SecurityApplication.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(PeopleCompanies peopleCompanies)
+        public ActionResult Edit(SecureHelper peopleCompanies)
         {
             Person person = peopleCompanies.PersonToEdit;
             // NOTE: Most of this, in a real app, would go into the model and ideally use a graphdiff like operation to update properties

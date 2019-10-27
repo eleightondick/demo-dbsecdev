@@ -134,7 +134,7 @@
     </Compile>
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Helpers\InsecureHelper.cs" />
-    <Compile Include="Helpers\PeopleCompanies.cs" />
+    <Compile Include="Helpers\SecureHelper.cs" />
     <Compile Include="Migrations\201910261742203_Initial.cs" />
     <Compile Include="Migrations\201910261742203_Initial.Designer.cs">
       <DependentUpon>201910261742203_Initial.cs</DependentUpon>

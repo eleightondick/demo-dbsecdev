@@ -7,15 +7,15 @@ using SecurityApplication.Models;
 
 namespace SecurityApplication.Helpers
 {
-    public class PeopleCompanies : Helper
+    public class SecureHelper : Helper
     {
         public Person PersonToEdit { get; set; }
         public IEnumerable<Company> Companies { get; set; }
         public SelectList CompanyList { get; set; }
 
-        public PeopleCompanies() { }
+        public SecureHelper() { }
 
-        public PeopleCompanies(EFDbContext context) : base(context)
+        public SecureHelper(EFDbContext context) : base(context)
         {
             this.Companies = context.Companies;
             BuildSelectList();
